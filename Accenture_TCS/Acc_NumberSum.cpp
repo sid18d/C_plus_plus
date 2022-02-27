@@ -9,7 +9,7 @@ Output: 11
 Example 2:
 Input 1: 5
 Input 2: {1,2,3,4,5}
-Output: 11
+Output: 9
 
 */
 
