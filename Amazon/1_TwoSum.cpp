@@ -117,20 +117,37 @@ vector<int> twoSum(vector<int>& nums, int target)
 
 
 
-// Hash Map Solution
+// Hash Map Solution    simple explanation of the following code : --> https://www.code-recipe.com/post/two-sum
+
+
+/*
+
+----STEPS-----
+#1.  For a given input array this algorithm does the following steps:
+#2.  Create a hashmap which accepts integer datatype as key and value.
+#3.  Iterate through each element in the given array starting from the first element.
+#4.  In each iteration check if required number (required  number = target sum - current number) is present in the hashmap.
+#5.  If present, return {required number index, current number index} as  result.
+#6.  Otherwise add the current iteration number as key and its index as value to the hashmap. Repeat this  until you find the result.
+
+
+*/
+
+
+
 
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
 	
-        unordered_map<int,int> indices;
+        unordered_map<int,int> indices;                                 // Declaring HashMap to be of <int, int> type
 		
         for(int i=0;i<nums.size();i++){
             if(indices.find(target-nums[i])!=indices.end()){
-                return {indices[target-nums[i]],i};
+                return {indices[target-nums[i]],i};                    // if required number is present in the hashmap ---> return {required number index, current number index} as  result
             }
-            indices[nums[i]]=i;
+            indices[nums[i]]=i;                                        // Adding the current iteration number as key and its index as value to the hashmap
         }
         return {};
     }
