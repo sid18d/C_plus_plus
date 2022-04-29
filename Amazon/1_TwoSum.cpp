@@ -120,31 +120,21 @@ vector<int> twoSum(vector<int>& nums, int target)
 // Hash Map Solution
 
 
-vector<int> twoSum(vector<int>& nums, int target) 
-{
-      map<int, int> map;
-      vector<int> pairs;
-      for(int i = 0; i < nums.size(); i++) 
-      {
-          int complement = target - nums[i];
-          if(map.find(complement) != map.end()) 
-          {
-              pairs.push_back(map.find(complement)->second);
-              pairs.push_back(i);
-              break;
-          }
-          map.insert(pair<int, int>(nums[i], i));
-      }
-      return pairs;
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+	
+        unordered_map<int,int> indices;
+		
+        for(int i=0;i<nums.size();i++){
+            if(indices.find(target-nums[i])!=indices.end()){
+                return {indices[target-nums[i]],i};
+            }
+            indices[nums[i]]=i;
+        }
+        return {};
+    }
 };
-
-int main() 
-{
-  vector<int>nums = {1,4,3,6,5,8};
-  vector<int>pair = twoSum(nums,4);
-  cout << "pair indices are : " << pair[0] << " " << pair[1] << endl;
-  return 0;
-}
 
 
 
